@@ -38,6 +38,12 @@ $("#language").change(function () {
 $("#seed").val(Math.floor(Math.random() * 1000));
 fire();
 
+function reset() {
+    if (window.confirm("Are you sure you want to Reset the game?")) {
+        fire();
+    }
+}
+
 function fire() {
     //get seed and set the seed for randomizer
     var seed = document.getElementById("seed").value;
@@ -206,7 +212,7 @@ function clicked(value) {
             if (words[1] !== undefined) {
                 comment = " " + "(" + words[1] + ")";
             }
-            if (window.confirm("Are sure you want to select '" + words[0] + comment + "'?")) {
+            if (window.confirm("Are you sure you want to select '" + words[0] + comment + "'?")) {
                 doStuff(value, elem);
             }
         } else {
@@ -269,28 +275,32 @@ function updateScore() {
 
 function spyMaster() {
     //TODO: randomize or organize tiles for easier comparing
-    var elem;
-    if (!spyMasterMode) {
-        spyMasterMode = true;
-        for (var i = 0; i < NUMBER_OF_WORDS; i++) {
-            elem = $("#" + i);
-            elem.addClass(cells[i]);
-            if (elem.data('guessed')) {
-                elem.addClass(GUESSED);
+    if (window.confirm("Are you sure you are a SpyMaster?")) {
+        if (window.confirm("Second time! Are you sure you are a SpyMaster?")) {
+            var elem;
+            if (!spyMasterMode) {
+                spyMasterMode = true;
+                for (var i = 0; i < NUMBER_OF_WORDS; i++) {
+                    elem = $("#" + i);
+                    elem.addClass(cells[i]);
+                    if (elem.data('guessed')) {
+                        elem.addClass(GUESSED);
+                    }
+                }
+            } else {
+                spyMasterMode = false;
+
+                for (var i = 0; i < NUMBER_OF_WORDS; i++) {
+                    elem = $("#" + i);
+                    var toRemove = [GUESSED];
+
+                    if (!elem.data('guessed')) {
+                        toRemove.push(cells[i]);
+                    }
+
+                    elem.removeClass(toRemove.join(' '));
+                }
             }
-        }
-    } else {
-        spyMasterMode = false;
-
-        for (var i = 0; i < NUMBER_OF_WORDS; i++) {
-            elem = $("#" + i);
-            var toRemove = [GUESSED];
-
-            if (!elem.data('guessed')) {
-                toRemove.push(cells[i]);
-            }
-
-            elem.removeClass(toRemove.join(' '));
         }
     }
 }
