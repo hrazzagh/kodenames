@@ -134,8 +134,6 @@ function createNewGame() {
 
 function clicked(value) {
     var elem = $("#" + value);
-    alert(value);
-    alert(elem);
 
     if (spyMasterMode) {
         //spymaster mode
@@ -170,14 +168,8 @@ function clicked(value) {
             }
         }
         if (hasBombFound) {
-            if (redScore === 0) {
-                window.alert('The game has been finished and the RED is winner!');
-                return;
-            }
-            if (blueScore === 0) {
-                window.alert('The game has been finished and the BLUE is winner!');
-                return;
-            }
+            window.alert('The game has been finished because somebody has clicked the BOMB!');
+            return;
         }
         if (redScore === 0) {
             window.alert('The game has been finished and the RED is winner!');
