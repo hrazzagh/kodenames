@@ -186,15 +186,15 @@ function clicked(value) {
             }
         }
         if (hasBombFound) {
-            window.alert('The game has been finished because somebody has clicked the BOMB!');
+            window.alert('The game is over. Somebody has clicked the BOMB!');
             return;
         }
         if (redScore === 0) {
-            window.alert('The game has been finished and the RED is winner!');
+            window.alert('The game is finished and RED is the winner!');
             return;
         }
         if (blueScore === 0) {
-            window.alert('The game has been finished and the BLUE is winner!');
+            window.alert('The game is finished and BLUE is the winner');
             return;
         }
 
