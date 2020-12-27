@@ -13,25 +13,27 @@
 <body>
   <div>
     <div id='header'>
-      <a href="https://hrazzagh.github.io/">Kodenames</a>
+      <a href="https://hrazzagh.github.io/">Kodenames<br/>به عشق دوستان ناب</a>
       <div class="score-container">
         <span class="score-item" id="redScore"></span>
-        <div style="width: 5px"></div>
         <span class="score-item" id="blueScore"></span>
       </div>
       <div class="seed-container">
         <span class="label">Seed: </span>
         <input type="text" id="seed" placeholder="seed" size="8" autofocus>
       </div>
+<!--
       <select id='gameMode'>
         <option value="default">Default Word Set</option>
-<!--        <option value="spanish">Spanish Word Set</option>-->
-<!--        <option value="2knouns">2K Nouns</option>-->
-<!--        <option value="movies">Top 250 Movies</option>-->
-<!--        <option value="custom">Custom Words</option>-->
+        <option value="spanish">Spanish Word Set</option>
+        <option value="2knouns">2K Nouns</option>
+        <option value="movies">Top 250 Movies</option>
+        <option value="custom">Custom Words</option>
       </select>
+-->
+      <input id="gameMode" value="default" type="hidden">
       <!-- <span id="google_translate_element"></span> -->
-      <div class="confirm-container" style="border: solid 1px #DDDDDD; padding: 3px; background-color: #DDDDDD; transition: background .2s ease">
+      <div class="confirm-container" style="border: solid 1px #DDDDDD; padding: 2px; background-color: #DDDDDD; transition: background .2s ease">
         <span id="confirmText" class="label">Confirm?</span>
         <input type="checkbox" id="confirm">
       </div>

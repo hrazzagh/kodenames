@@ -124,7 +124,7 @@ function createNewGame() {
     }
 
     // push the bomb
-    cells.push(BOMB)
+    cells.push(BOMB);
 
     //shuffle cells
     shuffle(cells);
@@ -144,9 +144,53 @@ function clicked(value) {
         }
     } else {
         //guessers mode
+
+        var hasBombFound = false;
+        var blueScore = 9;
+        var redScore = 9;
+        if (!spyMasterMode) {
+            $('div.word').each(function () {
+                if ($(this).hasClass(BLUE_TEAM)) {
+                    blueScore--;
+                }
+                if ($(this).hasClass(RED_TEAM)) {
+                    redScore--;
+                }
+                if ($(this).hasClass(BOMB)) {
+                    hasBombFound = true;
+                }
+            });
+
+            if (startTeam == RED_TEAM) {
+                blueScore--;
+            } else {
+                redScore--;
+            }
+        }
+        if (hasBombFound) {
+            if (redScore === 0) {
+                window.alert('The game has been finished and the RED is winner!');
+                return;
+            }
+            if (blueScore === 0) {
+                window.alert('The game has been finished and the BLUE is winner!');
+                return;
+            }
+        }
+        if (redScore === 0) {
+            window.alert('The game has been finished and the RED is winner!');
+            return;
+        }
+        if (blueScore === 0) {
+            window.alert('The game has been finished and the BLUE is winner!');
+            return;
+        }
+
+
         var word = wordsSelected[value];
         if (document.getElementById("confirm").checked) {
-            if (window.confirm("Are sure you want to select '" + word + "'?")) {
+            var words = word.split('#');
+            if (window.confirm("Are sure you want to select '" + words[0] + " " + "(" + + words[1] + ")" + "'?")) {
                 doStuff(value, elem);
             }
         } else {
