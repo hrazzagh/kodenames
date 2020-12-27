@@ -174,10 +174,10 @@ a {
 
 .score-item {
 	border: white 2px solid;
-	width: 8rem;
+	width: 3rem;
 	height: 3rem;
 	border-radius: 100%;
-	padding: .25rem;
+	padding: 3rem;
 	display: block;
 	float: left;
 	text-align: center;
