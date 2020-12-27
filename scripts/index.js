@@ -30,6 +30,10 @@ $("#gameMode").change(function () {
     fire();
 });
 
+$("#language").change(function () {
+    fire();
+});
+
 
 $("#seed").val(Math.floor(Math.random() * 1000));
 fire();
@@ -40,6 +44,7 @@ function fire() {
     Math.seedrandom(seed.toLowerCase());
 
     var option = $('#gameMode :selected').val();
+    var language = $('#language :selected').val();
     switch (option) {
         case 'spanish':
             sessionData = spanishData.slice(0);
@@ -58,7 +63,16 @@ function fire() {
             sessionData = customData.slice(0);
             break;
         default:
-            sessionData = defaultData.slice(0);
+            switch (language) {
+                case 'Farsi':
+                    sessionData = defaultData_Farsi.slice(0);
+                    break;
+                case 'English':
+                    sessionData = defaultData.slice(0);
+                    break;
+                default:
+                    sessionData = defaultData.slice(0);
+            }
     }
 
     wordsSelected = [];
