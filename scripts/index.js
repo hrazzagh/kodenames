@@ -134,6 +134,8 @@ function createNewGame() {
 
 function clicked(value) {
     var elem = $("#" + value);
+    alert(value);
+    alert(elem);
 
     if (spyMasterMode) {
         //spymaster mode
