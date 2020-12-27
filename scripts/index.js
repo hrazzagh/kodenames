@@ -87,8 +87,12 @@ function createNewGame() {
         }
         var randomNumber = Math.floor(Math.random() * sessionData.length);
         var word = sessionData[randomNumber];
+
+        var words = word.split('#');
+
         removeItem(sessionData, randomNumber);
         wordsSelected.push(word);
+        // trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\"><div><a href=\"#\"><span class=\"ada\"></span>" + words[0] + "</a>" + "<br/>" + "(" + words[1] + ")" + "</div></div>";
         trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\"><div><a href=\"#\"><span class=\"ada\"></span>" + word + "</a></div></div>";
     }
     //<a href="#"><span class="ada">Washington stimulates economic growth </span>Read me</a>
@@ -143,17 +147,17 @@ function clicked(value) {
         var word = wordsSelected[value];
         if (document.getElementById("confirm").checked) {
             if (window.confirm("Are sure you want to select '" + word + "'?")) {
-                doStuff(elem);
+                doStuff(value, elem);
             }
         } else {
-            doStuff(elem);
+            doStuff(value, elem);
         }
     }
 
     updateScore();
 }
 
-function doStuff(elem) {
+function doStuff(value, elem) {
     if (elem.data('guessed')) {
         elem.removeClass(cells[value]);
         elem.data('guessed', false);
