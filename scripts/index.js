@@ -63,6 +63,8 @@ function fire() {
             sessionData = customData.slice(0);
             break;
         default:
+            alert('inside default');
+            alert(language);
             switch (language) {
                 case 'Farsi':
                     sessionData = defaultData_Farsi.slice(0);
