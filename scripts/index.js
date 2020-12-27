@@ -143,17 +143,17 @@ function clicked(value) {
         var word = wordsSelected[value];
         if (document.getElementById("confirm").checked) {
             if (window.confirm("Are sure you want to select '" + word + "'?")) {
-                doStuff();
+                doStuff(elem);
             }
         } else {
-            doStuff();
+            doStuff(elem);
         }
     }
 
     updateScore();
 }
 
-function doStuff() {
+function doStuff(elem) {
     if (elem.data('guessed')) {
         elem.removeClass(cells[value]);
         elem.data('guessed', false);
@@ -260,4 +260,4 @@ document.getElementById('seed').onkeypress = function (e) {
         fire();
         return false;
     }
-}
+};
