@@ -63,8 +63,6 @@ function fire() {
             sessionData = customData.slice(0);
             break;
         default:
-            alert('inside default');
-            alert(language);
             switch (language) {
                 case 'Farsi':
                     sessionData = defaultData_Farsi.slice(0);
@@ -105,10 +103,14 @@ function createNewGame() {
         var word = sessionData[randomNumber];
 
         var words = word.split('#');
+        var comment = "";
+        if (words[1] !== undefined) {
+            comment = "<br/>" + "(" + words[1] + ")";
+        }
 
         removeItem(sessionData, randomNumber);
         wordsSelected.push(word);
-        trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\"><div><a href=\"#\"><span class=\"ada\"></span>" + words[0] + "</a>" + "<br/>" + "(" + words[1] + ")" + "</div></div>";
+        trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\"><div><a href=\"#\"><span class=\"ada\"></span>" + words[0] + "</a>" + comment + "</div></div>";
         // trs[i % 5] += "<div class=\"word\" id=\'" + i + "\' onclick=\"clicked(\'" + i + "\')\"><div><a href=\"#\"><span class=\"ada\"></span>" + word + "</a></div></div>";
     }
     //<a href="#"><span class="ada">Washington stimulates economic growth </span>Read me</a>
@@ -200,7 +202,11 @@ function clicked(value) {
         var word = wordsSelected[value];
         if (document.getElementById("confirm").checked) {
             var words = word.split('#');
-            if (window.confirm("Are sure you want to select '" + words[0] + " " + "(" + + words[1] + ")" + "'?")) {
+            var comment = "";
+            if (words[1] !== undefined) {
+                comment = " " + "(" + + words[1] + ")";
+            }
+            if (window.confirm("Are sure you want to select '" + words[0] + comment + "'?")) {
                 doStuff(value, elem);
             }
         } else {
