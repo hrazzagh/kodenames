@@ -204,7 +204,7 @@ function clicked(value) {
             var words = word.split('#');
             var comment = "";
             if (words[1] !== undefined) {
-                comment = " " + "(" + + words[1] + ")";
+                comment = " " + "(" + words[1] + ")";
             }
             if (window.confirm("Are sure you want to select '" + words[0] + comment + "'?")) {
                 doStuff(value, elem);
