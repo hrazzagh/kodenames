@@ -39,7 +39,7 @@
 
       <input id="gameMode" value="default" type="hidden">
       <!-- <span id="google_translate_element"></span> -->
-      <div class="confirm-container" style="border: solid 1px #DDDDDD; padding: 2px; background-color: #DDDDDD; transition: background .2s ease">
+      <div class="confirm-container" style="border: solid 1px #DDDDDD; padding: 10px; background-color: #DDDDDD; transition: background .2s ease">
         <span id="confirmText" class="label">Confirm?</span>
         <input type="checkbox" id="confirm">
       </div>
@@ -47,7 +47,7 @@
       <button id="spymaster" onclick="spyMaster()">SpyMaster</button>
     </div>
       <div>Registration closes in <span id="time" style="background-color: red">05:00</span> minutes!
-        <button onclick="startNewTimer()">Start Timer</button>
+        <button id="timer" onclick="startNewTimer()">Start Timer</button>
       </div>
   </div>
   <div id="board"></div>

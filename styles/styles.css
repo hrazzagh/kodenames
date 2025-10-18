@@ -37,9 +37,16 @@ select {
 button {
 	background: #DDDDDD;
 	transition: background .2s ease;
-	border-radius: 2px;
+	border-radius: 5px;
 	font-size: 1rem;
 	padding: .5rem 1rem;
+}
+
+#timer {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+  margin-left: 0px;
 }
 
 button:hover {
