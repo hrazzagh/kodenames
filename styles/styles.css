@@ -37,7 +37,7 @@ select {
 button {
 	background: #DDDDDD;
 	transition: background .2s ease;
-	border-radius: 2px;
+	border-radius: 5px;
 	font-size: 1rem;
 	padding: .5rem 1rem;
 }
